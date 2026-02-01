@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For You ❤️</title>
+<title>For My Paaruuuuu ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
   body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(135deg, #ff416c, #ff4b7d);
+    background:
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+      url("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e");
+    background-size: cover;
+    background-position: center;
     font-family: Arial, sans-serif;
     display: flex;
     align-items: center;
@@ -19,21 +23,31 @@
     text-align: center;
   }
 
-  /* Gift Box */
+  .hidden { display: none; }
+
+  /* Gift Section */
+  #giftSection {
+    z-index: 2;
+  }
+
+  #titleText {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+  }
+
   #giftBox {
-    font-size: 120px;
+    font-size: 130px;
     cursor: pointer;
     animation: bounce 1.5s infinite;
   }
 
   @keyframes bounce {
     0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-25px); }
   }
 
-  /* Message Card */
-  #message {
-    display: none;
+  /* Card */
+  .card {
     background: rgba(255,255,255,0.2);
     padding: 25px;
     border-radius: 20px;
@@ -42,61 +56,107 @@
     z-index: 2;
   }
 
-  /* Confetti */
+  button {
+    margin: 10px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+
+  .yes {
+    background: white;
+    color: #ff4b7d;
+  }
+
+  .no {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  /* Heart Confetti */
   .confetti {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    animation: fall 3s linear forwards;
+    font-size: 28px; /* BIG poppers */
+    animation: fall 3.5s linear forwards;
   }
 
   @keyframes fall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    0% {
+      transform: translateY(-20px) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) scale(1.4);
+      opacity: 0;
+    }
   }
 </style>
 </head>
 
 <body>
 
-<!-- First Screen -->
-<div id="giftBox" onclick="openGift()">🎁</div>
+<!-- Screen 1 -->
+<div id="giftSection">
+  <div id="titleText">To my paaruuuuu 💕</div>
+  <div id="giftBox" onclick="showReady()">🎁</div>
+</div>
 
-<!-- Message Screen -->
-<div id="message">
+<!-- Screen 2 -->
+<div id="readyCard" class="card hidden">
+  <h2>Are you ready for the surprise? 😍</h2>
+  <button class="yes" onclick="showSurprise()">YES 💖</button>
+  <button class="no" onclick="notReady()">NO 🙈</button>
+</div>
+
+<!-- Screen 3 -->
+<div id="messageCard" class="card hidden">
   <h1>Happy Valentine’s Day ❤️</h1>
   <p>
     To my paaruuu,
-     Happyyyyy valentines day ende halwakashnam…🥹💋🫀. Lovee youuuuu shooooooo muchh and mona miss youuu soo badly🥺🫂.
+     Happyyyyy valentines day ende halwakashnam…🥹💋🫀. First of all this is my first valentines wish in my life and im soo happy 🥹🫂.
+    I Lovee youuuuu shooooooo muchh ponnaaaa😭😭🫂🫂and mona miss youuu soo badly🥺🫂.
     Aduth indayrnnel endhelum gift okke vaangi thann happy aakkayrnn but namde sahacharyam angane alla🫠. 
     So mona ninakk vendi ee kunj gift therunnu and hope ende kuttykk ith ishtappedum enn🫠🫀. 
-    All i want to say is….mona loves you very much that even words cant describe😭 and im soo happy ninne enikk thanne kittiyathil🥹💋🫂.
-    You are my favorite person,  
-    my happiness, and my forever 💕  
-    I love you more than words can say.
+    All i want to say is….mona loves you very much that even words cant describe😭 and im soo happy ninne enikk thanne kittiyathil🥹🫂.
+    You are my favorite person🥹,  
+    my comfort🫠🫂, my happiness🥹💋,  
+    and my forever🥹🫀💕,and mona will love you endlessly🥹♾️.
+    Once again happyyyy valentiness dayyyy ende paaruuuuuu🥹🫀🫂💋.
   </p>
-  <p>— Ninte swantham…mona🥹💋🫂 </p>
+  <p>— ninte swantham...mona🥹💋🫂</p>
 </div>
 
 <script>
-  function openGift() {
-    document.getElementById("giftBox").style.display = "none";
-    document.getElementById("message").style.display = "block";
+  function showReady() {
+    document.getElementById("giftSection").style.display = "none";
+    document.getElementById("readyCard").classList.remove("hidden");
+  }
+
+  function showSurprise() {
+    document.getElementById("readyCard").classList.add("hidden");
+    document.getElementById("messageCard").classList.remove("hidden");
     launchConfetti();
   }
 
+  function notReady() {
+    alert("Hehe 😄 you can’t escape this surprise 💕");
+  }
+
   function launchConfetti() {
-    for (let i = 0; i < 80; i++) {
+    const hearts = ["💖","💕","💘","💗","💝"];
+    for (let i = 0; i < 120; i++) {
       const confetti = document.createElement("div");
       confetti.className = "confetti";
-      confetti.style.background =
-        ["#ffeb3b", "#ff4081", "#ffffff", "#ff9800"][Math.floor(Math.random()*4)];
+      confetti.innerText = hearts[Math.floor(Math.random() * hearts.length)];
       confetti.style.left = Math.random() * window.innerWidth + "px";
-      confetti.style.top = "-10px";
-      confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+      confetti.style.top = "-30px";
+      confetti.style.animationDuration = (Math.random() * 2 + 2.5) + "s";
       document.body.appendChild(confetti);
 
-      setTimeout(() => confetti.remove(), 3000);
+      setTimeout(() => confetti.remove(), 4000);
     }
   }
 </script>
