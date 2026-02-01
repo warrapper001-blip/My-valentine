@@ -1,41 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Happy Valentine’s Day ❤️</title>
-  <style>
-    body {
-      background: linear-gradient(to right, #ff416c, #ff4b7d);
-      font-family: Arial, sans-serif;
-      text-align: center;
-      color: white;
-      padding: 40px;
-    }
-    .card {
-      background: rgba(255,255,255,0.2);
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 500px;
-      margin: auto;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff416c, #ff4b7d);
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+  }
+
+  /* Gift Box */
+  #giftBox {
+    font-size: 120px;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Message Card */
+  #message {
+    display: none;
+    background: rgba(255,255,255,0.2);
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    z-index: 2;
+  }
+
+  /* Confetti */
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: fall 3s linear forwards;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+</style>
 </head>
+
 <body>
 
-<div class="card">
+<!-- First Screen -->
+<div id="giftBox" onclick="openGift()">🎁</div>
+
+<!-- Message Screen -->
+<div id="message">
   <h1>Happy Valentine’s Day ❤️</h1>
-  <h2>My Love</h2>
   <p>
     To my paaruuu,
      Happyyyyy valentines day ende halwakashnam…🥹💋🫀. Lovee youuuuu shooooooo muchh and mona miss youuu soo badly🥺🫂.
     Aduth indayrnnel endhelum gift okke vaangi thann happy aakkayrnn but namde sahacharyam angane alla🫠. 
     So mona ninakk vendi ee kunj gift therunnu and hope ende kuttykk ith ishtappedum enn🫠🫀. 
-    All i want to say is….mona loves you very much that even words cant describe😭 and im soo happy ninne enikk thanne kittiyathil .
-    You make my world brighter every day.  
-    I’m so grateful to have you in my life.  
-    I love you forever 💕
+    All i want to say is….mona loves you very much that even words cant describe😭 and im soo happy ninne enikk thanne kittiyathil🥹💋🫂.
+    You are my favorite person,  
+    my happiness, and my forever 💕  
+    I love you more than words can say.
   </p>
-  <p>— Yours always monaa🥹💖</p>
+  <p>— Yours always 💖</p>
 </div>
+
+<script>
+  function openGift() {
+    document.getElementById("giftBox").style.display = "none";
+    document.getElementById("message").style.display = "block";
+    launchConfetti();
+  }
+
+  function launchConfetti() {
+    for (let i = 0; i < 80; i++) {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.background =
+        ["#ffeb3b", "#ff4081", "#ffffff", "#ff9800"][Math.floor(Math.random()*4)];
+      confetti.style.left = Math.random() * window.innerWidth + "px";
+      confetti.style.top = "-10px";
+      confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+      document.body.appendChild(confetti);
+
+      setTimeout(() => confetti.remove(), 3000);
+    }
+  }
+</script>
 
 </body>
 </html>
