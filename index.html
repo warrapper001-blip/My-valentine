@@ -5,34 +5,45 @@
 <title>For My Paaruuuuu ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Elegant Script Font -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
   body {
     margin: 0;
     height: 100vh;
-    background:
-      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-      url("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e");
-    background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+    font-family: 'Great Vibes', cursive;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    color: white;
+    color: #fff;
     text-align: center;
   }
 
   .hidden { display: none; }
 
-  /* Gift Section */
-  #giftSection {
-    z-index: 2;
+  /* Animated Title */
+  #titleText {
+    font-size: 2.4em;
+    margin-bottom: 15px;
+    animation: glow 2.5s ease-in-out infinite;
   }
 
-  #titleText {
-    font-size: 1.6em;
-    margin-bottom: 15px;
+  @keyframes glow {
+    0% {
+      transform: scale(1);
+      text-shadow: 0 0 5px #fff;
+    }
+    50% {
+      transform: scale(1.05);
+      text-shadow: 0 0 20px #fff;
+    }
+    100% {
+      transform: scale(1);
+      text-shadow: 0 0 5px #fff;
+    }
   }
 
   #giftBox {
@@ -46,23 +57,26 @@
     50% { transform: translateY(-25px); }
   }
 
-  /* Card */
   .card {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.25);
     padding: 25px;
     border-radius: 20px;
     width: 90%;
-    max-width: 400px;
-    z-index: 2;
+    max-width: 420px;
   }
 
+  h1 { font-size: 2.5em; }
+  h2 { font-size: 1.9em; }
+  p  { font-size: 1.35em; line-height: 1.6; }
+
   button {
-    margin: 10px;
-    padding: 12px 25px;
+    margin: 12px;
+    padding: 10px 26px;
     border: none;
     border-radius: 25px;
     font-size: 1em;
     cursor: pointer;
+    font-family: Arial, sans-serif;
   }
 
   .yes {
@@ -79,7 +93,7 @@
   /* Heart Confetti */
   .confetti {
     position: absolute;
-    font-size: 28px; /* BIG poppers */
+    font-size: 30px;
     animation: fall 3.5s linear forwards;
   }
 
@@ -115,18 +129,32 @@
 <div id="messageCard" class="card hidden">
   <h1>Happy Valentine’s Day ❤️</h1>
   <p>
-    To my paaruuu,
-     Happyyyyy valentines day ende halwakashnam…🥹💋🫀. First of all this is my first valentines wish in my life and im soo happy 🥹🫂.
-    I Lovee youuuuu shooooooo muchh ponnaaaa😭😭🫂🫂and mona miss youuu soo badly🥺🫂.
-    Aduth indayrnnel endhelum gift okke vaangi thann happy aakkayrnn but namde sahacharyam angane alla🫠. 
-    So mona ninakk vendi ee kunj gift therunnu and hope ende kuttykk ith ishtappedum enn🫠🫀. 
-    All i want to say is….mona loves you very much that even words cant describe😭 and im soo happy ninne enikk thanne kittiyathil🥹🫂.
-    You are my favorite person🥹,  
-    my comfort🫠🫂, my happiness🥹💋,  
-    and my forever🥹🫀💕,and mona will love you endlessly🥹♾️.
+    To my paaruuu,<br><br>
+
+    Happyyyyy valentines day ende halwakashnam…🥹💋🫀<br>
+    First of all this is my first valentines wish in my life and im soo happy 🥹🫂.<br><br>
+
+    I Lovee youuuuu shooooooo muchh ponnaaaa😭😭🫂🫂  
+    and mona miss youuu soo badly🥺🫂.<br><br>
+
+    Aduth indayrnnel endhelum gift okke vaangi thann happy aakkayrnn  
+    but namde sahacharyam angane alla🫠.<br><br>
+
+    So mona ninakk vendi ee kunj gift therunnu  
+    and hope ende kuttykk ith ishtappedum enn🫠🫀.<br><br>
+
+    All i want to say is….<br>
+    mona loves you very much that even words cant describe😭  
+    and im soo happy ninne enikk thanne kittiyathil🥹🫂.<br><br>
+
+    You are my favorite person🥹,<br>
+    my comfort🫠🫂, my happiness🥹💋,<br>
+    and my forever🥹🫀💕,<br>
+    and mona will love you endlessly🥹♾️.<br><br>
+
     Once again happyyyy valentiness dayyyy ende paaruuuuuu🥹🫀🫂💋.
   </p>
-  <p>— ninte swantham...mona🥹💋🫂</p>
+  <p>- Ninte swantham....mona🥹🫂💋🫀</p></p>
 </div>
 
 <script>
@@ -155,7 +183,6 @@
       confetti.style.top = "-30px";
       confetti.style.animationDuration = (Math.random() * 2 + 2.5) + "s";
       document.body.appendChild(confetti);
-
       setTimeout(() => confetti.remove(), 4000);
     }
   }
